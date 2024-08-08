@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Blog</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <nav>
+        {{#if user}}
+        <p>Welcome, {{user.username}}</p>
+        
+        <a href="/favorites" class="{{#if favorites}}active{{/if}}">Favorites</a>
+
+        <a href="/search" class="{{#if search}}active{{/if}}">Movie Search</a>
+        
+        <a href="/logout">Log Out</a>
+    </nav>
+</body>
+</html>
