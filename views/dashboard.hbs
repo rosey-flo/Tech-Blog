@@ -1,0 +1,9 @@
+<h1>Welcome, {{user.email}}!</h1>
+
+<h1>Your Dashboard</h1>
+<a href="/post/new">Create New Post</a>
+{{#each posts}}
+  <h2><a href="/post/{{id}}">{{title}}</a></h2>
+  <a href="/post/edit/{{id}}">Edit</a>
+  <a href="/post/delete/{{id}}">Delete</a>
+{{/each}}
