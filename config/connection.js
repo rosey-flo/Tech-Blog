@@ -1,6 +1,7 @@
 const {Sequelize} = require('sequelize');
 //Sequelize's cleint connection constructor
 
+//Create a new instance object of sequelize called client
 const client = new Sequelize({
     dialect: 'postgres',
     host: 'localhost',

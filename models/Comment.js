@@ -1,6 +1,5 @@
 const { DataTypes, define } = require('sequelize');
 const client = require('../config/connection');
-const bcrypt = require('bcrypt');
 
 const Comment = client.define ('Comment', {
     content: {

@@ -1,9 +1,30 @@
+<!--
 <h1>Welcome, {{user.email}}!</h1>
 
 <h1>Your Dashboard</h1>
-<a href="/post/new">Create New Post</a>
+<a href="/dashboard/post">Create New Post</a>
 {{#each posts}}
-  <h2><a href="/post/{{id}}">{{title}}</a></h2>
-  <a href="/post/edit/{{id}}">Edit</a>
-  <a href="/post/delete/{{id}}">Delete</a>
+  <h2><a href="/dashboard/{{id}}">{{title}}</a></h2>
+  <a href="/dashboard/edit/{{id}}">Edit</a>
+  <a href="/dashboard/delete/{{id}}">Delete</a>
 {{/each}}
+
+-->
+<h1>Welcome, {{user.email}}!</h1>
+
+<h1>Your Dashboard</h1>
+<a href="/post">Create New Post</a>
+
+{{#if posts.length}}
+  {{#each posts}}
+    <div class="post-item">
+      <h2><a href="/dashboard/{{id}}">{{title}}</a></h2>
+      <a href="/dashboard/edit/{{id}}">Edit</a>
+      <form action="/dashboard/post/{{id}}?_method=DELETE" method="POST" style="display:inline;">
+        <button type="submit">Delete</button>
+      </form>
+    </div>
+  {{/each}}
+{{else}}
+  <p>You have no posts yet.</p>
+{{/if}}

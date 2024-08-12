@@ -1,0 +1,10 @@
+<h1>{{post.title}}</h1>
+<p>{{post.content}}</p>
+<p>Posted by {{user.email}} on {{post.createdAt}}</p>
+
+<a href="/dashboard/edit/{{post.id}}">Edit</a>
+
+<form action="/dashboard/delete/{{post.id}}" method="POST" style="display:inline;">
+  <button type="submit">Delete</button>
+</form>
+

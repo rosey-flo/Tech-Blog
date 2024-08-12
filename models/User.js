@@ -1,31 +1,41 @@
-const { DataTypes, define } = require('sequelize');
+const { DataTypes } = require('sequelize');
+const { hash, compare } = require('bcrypt');
 const client = require('../config/connection');
-const bcrypt = require('bcrypt');
-
+const Post = require('./Post')
 
 const User = client.define('User', {
-    email: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-            isEmail: true
-        }
-    },
-    password: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-            len: 6
-        }
+  email: {
+    type: DataTypes.STRING,
+    unique: true,
+    allowNull: false,
+    validate: {
+      isEmail: true
     }
-}, 
-{
-    client,
-    timestamps: false,
-    freezeTableName: true,
-    underscored: true,
-    modelName: 'user'
+  },
+  password: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    validate: {
+      len: 6
+    }
+  }
+}, {
+  hooks: {
+    async beforeCreate(user) {
+      user.password = await hash(user.password, 10);
 
-})
+      return user;
+    }
+  }
+});
 
-module.exports = User
+User.prototype.validatePassword = async function (formPassword) {
+  // The instance is provided keyword
+  const is_valid = await compare(formPassword, this.password);
+
+  return is_valid;
+}
+
+
+
+module.exports = User;

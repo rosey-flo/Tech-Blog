@@ -1,6 +1,6 @@
 const { DataTypes, define } = require('sequelize');
 const client = require('../config/connection');
-const bcrypt = require('bcrypt');
+const User = require('./User')
 
 const Post = client.define('Post', {
     title: {
@@ -13,6 +13,7 @@ const Post = client.define('Post', {
     },
     user_id: {
         type: DataTypes.INTEGER,
+        allowNull: false,
         references: {
           model: 'User',
           key: 'id'
@@ -20,7 +21,6 @@ const Post = client.define('Post', {
 }
 }, 
 {
-    client,
     timestamps: true,
     freezeTableName: true,
     underscored: true,
@@ -28,4 +28,6 @@ const Post = client.define('Post', {
 
 })
 
+
 module.exports = Post
+

@@ -1,15 +1,28 @@
-const router = require('express').Router()
-const view_controller = require('../controllers/view_controller')
+const router = require('express').Router();
+const view_controller = require('../controllers/view_controller');
+const { redirectGuest, redirectUser } = require('./helpers');
 
-//Homepage Routes
-router.get('/', view_controller.showHomePage)
+// Homepage Route
+router.get('/', redirectUser, view_controller.showHomepage);
 
-router.get('/register', view_controller.showRegisterPage)
+// Register Route
+router.get('/register', redirectUser, view_controller.showRegisterPage);
 
-router.get('/login', view_controller.showLoginPage)
+// Login Route
+router.get('/login', redirectUser, view_controller.showLoginPage);
 
-//dashbaord route
-router.get('/dashboard', view_controller.showDashboardPage)
-   
+// Dashboard Route - Route to view all posts on the dashboard
+router.get('/dashboard', redirectGuest, view_controller.showDashboardPage);
 
-module.exports = router
+// Show a specific post by ID - Detailed view for a specific post
+router.get('/dashboard/:id', redirectGuest, view_controller.showPostByID);
+
+// Create new post form
+router.get('/post', redirectGuest, view_controller.showCreatePostPage);
+
+
+
+
+
+
+module.exports = router;

@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{{title}}}</title>
-    <link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{title}}</title>
+  <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-    <header class="row justify-between align-center">
-        <h3>Project Tracker</h3>
+  <header class="row justify-between align-center">
 
-        <nav>
-            <a href="/register">Register</a>
-            <span>or</span>
-            <a href="/login">Login</a>
-            <a href="/home"></a>
-        </nav>
-    </header>
-
-
-    {{{body}}}
+    <nav class="nav-bar row align-center">
+    <h3>Tech Blog</h3>
+      {{#if user}}
+        <p class="mr-2">Welcome, {{user.email}}</p>
+        <a href="/logout">Log Out</a>
+      {{else}}
+        <a href="/login" class="mr-2 {{#if login}}active{{/if}}">Log In</a>
+        <span class="mr-2"> or </span>
+        <a href="/register" class="{{#if register}}active{{/if}}">Register</a>
+      {{/if}}
+    </nav>
+  </header>
+  
+  {{{body}}}
 </body>
 </html>
