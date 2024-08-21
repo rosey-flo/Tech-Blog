@@ -4,6 +4,7 @@ const express = require('express');
 const session = require('express-session');
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const { engine } = require('express-handlebars');
+const methodOverride = require('method-override');
 
 const client = require('./config/connection');
 const view_routes = require('./routes/view_routes');
@@ -16,6 +17,9 @@ const PORT = 3001;
 
 // Create a GET route for every file in public
 app.use(express.static('./public'));
+
+//Allow other request types through forms
+app.use(methodOverride('_method'));
 
 // Allow urlencoded form data to be attached to req.body
 app.use(express.urlencoded({ extended: false }));

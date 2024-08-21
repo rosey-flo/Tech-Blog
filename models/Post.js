@@ -1,6 +1,6 @@
 const { DataTypes, define } = require('sequelize');
 const client = require('../config/connection');
-const User = require('./User')
+
 
 const Post = client.define('Post', {
     title: {
@@ -21,6 +21,7 @@ const Post = client.define('Post', {
 }
 }, 
 {
+    client,
     timestamps: true,
     freezeTableName: true,
     underscored: true,

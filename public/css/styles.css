@@ -1,26 +1,16 @@
 /* RESETS */
 * {
-  /* margin: 0;
-    padding: 0; */
-  box-sizing: border-box;
+  box-sizing:border-box;
   font-family: sans-serif;
-  background-color: #ffb8d9;
-}
-
-nav {
-  background-color: #d35a93;
-}
-nav h3 {
-  background-color: #d35a93;
-}
-nav p {
-  background-color: #d35a93;
-}
-nav a {
-  background-color: #d35a93;
+  color: #3e3e3e;
 }
 
 
+
+body {
+  background-color: #ffeaf6;
+  margin: 25px 25px;
+}
 
 a {
   color: #000000;
@@ -64,11 +54,46 @@ form>* {
 
 /* CUSTOM STYLES */
 
-nav a {
-  text-decoration: none;
+header {
+  width: 100%;
+  /* background-color: #cf1f9a; */
+background-image: url('../images/pink-mosiac.avif');
+  padding: 10px 20px; 
+ 
 }
 
-nav a.active,
+nav a.active{
+color: #ffffff;
+}
+
 nav a:hover {
   text-decoration: underline;
+  color: #c34982;
+}
+
+.nav-links {
+  width: 100%;
+  justify-content: flex-end;
+  
+}
+.nav-bar{
+  display: flex; 
+  width: 100%;
+  /* background-color: #cf1f9a;  */
+}
+
+nav p {
+  margin: 0;
+
+}
+nav a {
+  text-decoration: none;
+  color: #3e3e3e; /* Link color */
+  margin: 0 10px; /* Spacing between links */
+  /* background-color: #cf1f9a; */
+}
+
+.comment-form {
+border: solid .5px #3e3e3e;
+margin-bottom: 25px;
 }

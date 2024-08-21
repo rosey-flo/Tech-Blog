@@ -1,27 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{title}}</title>
   <link rel="stylesheet" href="/css/styles.css">
 </head>
+
 <body>
   <header class="row justify-between align-center">
 
     <nav class="nav-bar row align-center">
-    <h3>Tech Blog</h3>
-      {{#if user}}
-        <p class="mr-2">Welcome, {{user.email}}</p>
+      <h3 class="row align-center">Tech Blog</h3>
+      <div class="nav-links row align-center">
+        {{#if user}}
+        <p class="nav-bar row">Welcome, {{user.email}}</p>
+        <a href="/">Home</a>
+        <a href="/dashboard">Dashboard</a>
         <a href="/logout">Log Out</a>
-      {{else}}
-        <a href="/login" class="mr-2 {{#if login}}active{{/if}}">Log In</a>
-        <span class="mr-2"> or </span>
+        {{else}}
+        <a href="/">Home</a>
+        <a href="/login" class="row {{#if login}}active{{/if}}">Log In</a>
         <a href="/register" class="{{#if register}}active{{/if}}">Register</a>
-      {{/if}}
+        {{/if}}
+      </div>
     </nav>
   </header>
-  
+
   {{{body}}}
 </body>
+
+<footer>
+  <p>&copy; Designed by Emily Flores</p>
+</footer>
+
 </html>

@@ -21,17 +21,12 @@ router.get('/post', (req, res) => {
 router.post('/dashboard', user_controller.createNewPost);
 
 // Route to handle editing a post
-router.post('/dashboard/edit/:id', user_controller.editPost);
+router.put('/dashboard/edit/:id', user_controller.editPost);
 
 // Route to handle deleting a post
-router.post('/dashboard/delete/:id', user_controller.deletePost);
+router.delete('/dashboard/post/:id', user_controller.deletePost);
 
-
-// // Route to show edit form for a specific post
-// router.get('/dashboard/edit/:id', redirectGuest, view_controller.showEditPostPage);
-
-// // Route to handle the form submission for editing a post
-// router.post('/dashboard/edit/:id', redirectGuest, view_controller.updatePost);
+router.post('/dashboard/post/:id', user_controller.createComment)
 
 
 

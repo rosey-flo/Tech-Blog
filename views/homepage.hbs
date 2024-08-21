@@ -1,6 +1,35 @@
 <h1>Homepage</h1>
 
+{{#if posts.length}}
+
 {{#each posts}}
-  <h2><a href="/post/{{id}}">{{title}}</a></h2>
-  <p>{{createdAt}}</p>
+<h2><a href="/post/{{id}}">{{title}}</a></h2>
+<p>Posted by {{User.email}} </p>
+<p>Created on {{createdAt}}</p>
+
+
+
+<h3>Leave a Comment:</h3>
+<div class="comment-form"></div>
+<form class="column" action="/dashboard/post/{{post.id}}" method="POST">
+
+  <label for="content">Comment:</label>
+  <textarea id="content" name="content" required></textarea>
+  <button type="submit">Add Comment</button>
+</form>
+</div>
+
+
+
+{{#if comments.length}}
+<h3>Comments:</h3>
+{{#each comments}}
+<p class="row">{{comment.content}} - Posted by {{comment.user.email}}</p>
+<p class="row">Created on {{comment.createdAt}}</p>
 {{/each}}
+{{else}}
+<p>No comments yet.</p>
+{{/if}}
+
+{{/each}}
+{{/if}}

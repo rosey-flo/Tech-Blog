@@ -1,15 +1,4 @@
-<!--
-<h1>Welcome, {{user.email}}!</h1>
 
-<h1>Your Dashboard</h1>
-<a href="/dashboard/post">Create New Post</a>
-{{#each posts}}
-  <h2><a href="/dashboard/{{id}}">{{title}}</a></h2>
-  <a href="/dashboard/edit/{{id}}">Edit</a>
-  <a href="/dashboard/delete/{{id}}">Delete</a>
-{{/each}}
-
--->
 <h1>Welcome, {{user.email}}!</h1>
 
 <h1>Your Dashboard</h1>
@@ -19,7 +8,7 @@
   {{#each posts}}
     <div class="post-item">
       <h2><a href="/dashboard/{{id}}">{{title}}</a></h2>
-      <a href="/dashboard/edit/{{id}}">Edit</a>
+      <a href="/dashboard/{{id}}">Edit</a>
       <form action="/dashboard/post/{{id}}?_method=DELETE" method="POST" style="display:inline;">
         <button type="submit">Delete</button>
       </form>
