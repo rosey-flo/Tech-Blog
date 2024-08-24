@@ -3,7 +3,12 @@ const {Sequelize} = require('sequelize');
 
 //Create a new instance object of sequelize called client
 const client = new Sequelize({
-    dialect: 'postgres',
+    dialectOptions: {
+        ssl: {
+          require: true,
+          rejectUnauthorized: false
+        }
+    },
     host: 'localhost',
     logging:false,
     username: process.env.LOCAL_DB_USERNAME,
