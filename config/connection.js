@@ -9,6 +9,7 @@ const client = new Sequelize({
           rejectUnauthorized: false
         }
     },
+    dialect: 'postgres',
     host: 'localhost',
     logging:false,
     username: process.env.LOCAL_DB_USERNAME,
