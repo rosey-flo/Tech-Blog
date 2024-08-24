@@ -21,9 +21,14 @@ form {
   margin: 0 auto;
 }
 
-form>* {
+form > * {
   padding: 6px 10px;
   margin-bottom: 6px;
+}
+
+form.column {
+box-sizing: border-box;
+margin-top: 35px;
 }
 
 /* GLOBAL CLASSES */
@@ -97,3 +102,7 @@ nav a {
 border: solid .5px #3e3e3e;
 margin-bottom: 25px;
 }
+
+
+
+

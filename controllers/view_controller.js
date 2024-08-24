@@ -4,6 +4,7 @@ module.exports = {
   async showHomepage(req, res) {
     
     try {
+      const user = await User.findByPk(req.session.user_id)
       // Fetch all posts with associated user information and comments
       const posts = await Post.findAll({
         include: [
@@ -22,11 +23,12 @@ module.exports = {
             ]
           }
         ],
-        order: [['createdAt', 'DESC']], // Optional: Order posts by creation date
+        order: [['createdAt', 'DESC']], // Order posts by creation date
       });
       const serializedPost = posts.map((post) => post.get({plain:true}))
-      console.log(serializedPost)
+      // console.log(serializedPost)
       res.render('homepage', {
+        user: user ? user.get({plain: true}) : false,
         title: 'Tech Blog - Homepage',
         posts: serializedPost
       });
@@ -97,7 +99,7 @@ showLoginPage(req, res) {
   try {
     const postId = req.params.id;
     const userId = req.session.user_id;
-    console.log(req.params)
+    // console.log(req.params)
 
     // console.log('Post ID:', postId);
     // console.log('User ID:', userId);

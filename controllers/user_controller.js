@@ -81,9 +81,10 @@ module.exports = {
   async editPost(req, res) {
     try {
       const postId = req.params.id;
-      const { title, content } = req.body;
       const userId = req.session.user_id;
-      console.log('test', postId)
+
+      const { title, content } = req.body;
+
       const post = await Post.findByPk(postId);
 
       if (!post || post.user_id !== userId) {
@@ -91,7 +92,7 @@ module.exports = {
       }
 
       await post.update({ title, content });
-      res.redirect('/dashboard/edit/' + postId); // Redirect to dashboard or where appropriate
+      res.redirect('/dashboard/' + postId); // Redirect to dashboard or where appropriate
     } catch (error) {
       console.error(error);
       res.redirect('/dashboard'); // Handle error scenario
@@ -99,17 +100,14 @@ module.exports = {
   },
   async deletePost(req, res) {
     try {
-      const postId = req.params.id;
-
+      const postId = req.params.id
       const post = await Post.findByPk(postId);
 
-
-      if (!post) {
-        return res.redirect('/dashboard'); // Post not found
-      }
+      console.log(post)
 
       await post.destroy();
-      res.redirect('/dashboard'); // Redirect to dashboard or where appropriate
+      res.redirect('/dashboard'); // Redirect to dashboard 
+
     } catch (error) {
       console.error(error);
       res.redirect('/dashboard'); // Handle error scenario
@@ -119,24 +117,26 @@ module.exports = {
   async createComment(req, res) {
     try {
       const { content } = req.body;
-      console.log('message', content)
       const userId = req.session.user_id;
       const postId = req.params.id
+
+      console.log(req.sessions)
+
 
       if (!userId) {
         return res.redirect('/login'); // Ensure user is logged in
       }
 
-      const createdComment = await Comment.create({
-        content,
+      const comment = await Comment.create({
+        content:content,
         user_id: userId,
         post_id: postId,
         createdAt: new Date(),
         updatedAt: new Date()
       });
 
-      console.log('these are my created comments:', createdComment, 'end')
-      res.redirect('/'); 
+      console.log('these are my created comments:', comment, 'end')
+      res.redirect('/');
     } catch (error) {
       console.error(error);
       res.redirect('/dashboard'); // Handle error scenario

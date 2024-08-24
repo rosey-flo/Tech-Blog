@@ -8,19 +8,6 @@
 <p>Created on {{createdAt}}</p>
 
 
-
-<h3>Leave a Comment:</h3>
-<div class="comment-form"></div>
-<form class="column" action="/dashboard/post/{{post.id}}" method="POST">
-
-  <label for="content">Comment:</label>
-  <textarea id="content" name="content" required></textarea>
-  <button type="submit">Add Comment</button>
-</form>
-</div>
-
-
-
 {{#if comments.length}}
 <h3>Comments:</h3>
 {{#each comments}}
@@ -31,5 +18,22 @@
 <p>No comments yet.</p>
 {{/if}}
 
+<h3>Leave a Comment:</h3>
+<div class="comment-form"></div>
+<form class="column" action="/" method="POST">
+
+  <label for="content">Comment:</label>
+  <textarea id="content" name="content" required></textarea>
+  <button type="submit">Add Comment</button>
+</form>
+</div>
 {{/each}}
 {{/if}}
+
+
+
+
+
+
+
+

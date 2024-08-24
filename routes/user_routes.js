@@ -26,7 +26,7 @@ router.put('/dashboard/edit/:id', user_controller.editPost);
 // Route to handle deleting a post
 router.delete('/dashboard/post/:id', user_controller.deletePost);
 
-router.post('/dashboard/post/:id', user_controller.createComment)
+router.post('/', user_controller.createComment)
 
 
 
