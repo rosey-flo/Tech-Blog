@@ -1,20 +1,21 @@
-const {Sequelize} = require('sequelize');
-//Sequelize's cleint connection constructor
+const { Sequelize } = require('sequelize');
 
-//Create a new instance object of sequelize called client
-const client = new Sequelize({
-    dialectOptions: {
-        ssl: {
-          require: true,
-          rejectUnauthorized: false
-        }
-    },
-    dialect: 'postgres',
-    host: 'localhost',
-    logging:false,
-    username: process.env.LOCAL_DB_USERNAME,
-    password: process.env.LOCAL_DB_PASSWORD,
-    database: process.env.LOCAL_DB_NAME
-})
+const client = process.env.DB_URL ? new Sequelize(process.env.DB_URL, {
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false
+    }
+  }
+}) : new Sequelize(
+  process.env.LOCAL_DB_NAME,
+  process.env.LOCAL_DB_USERNAME,
+  process.env.LOCAL_DB_PASSWORD, {
+  host: 'localhost',
+  dialect: 'postgres',
+  logging: false
+});
+
+
 
 module.exports = client;
