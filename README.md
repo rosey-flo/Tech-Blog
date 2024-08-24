@@ -29,6 +29,9 @@ This Project will require the installment of packages:
 ## Usage
 All packages can be installed seperately or placed manually within your package json in the dependencies after initializing your node modules and then typing npm i to download the rest 
 
+![Screen Shot 2024-08-24 at 10 38 34 AM](https://github.com/user-attachments/assets/fb9e40b7-b38c-411b-a743-3776785bfeed)
+
+
 ## License
 This application is covered by the ***MIT***.
 
