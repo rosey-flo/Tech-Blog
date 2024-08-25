@@ -26,7 +26,7 @@ module.exports = {
         order: [['createdAt', 'DESC']], // Order posts by creation date
       });
       const serializedPost = posts.map((post) => post.get({plain:true}))
-      // console.log(serializedPost)
+      console.log('serializaed post', serializedPost)
       res.render('homepage', {
         user: user ? user.get({plain: true}) : false,
         title: 'Tech Blog - Homepage',

@@ -8,11 +8,11 @@
 <p>Created on {{createdAt}}</p>
 
 
-{{#if comments.length}}
+{{#if Comments.length}}
 <h3>Comments:</h3>
-{{#each comments}}
-<p class="row">{{comment.content}} - Posted by {{comment.user.email}}</p>
-<p class="row">Created on {{comment.createdAt}}</p>
+{{#each Comments}}
+<p class="row">{{content}} - Posted by {{User.email}}</p>
+<p class="row">Created on {{createdAt}}</p>
 {{/each}}
 {{else}}
 <p>No comments yet.</p>
@@ -20,7 +20,7 @@
 
 <h3>Leave a Comment:</h3>
 <div class="comment-form"></div>
-<form class="column" action="/" method="POST">
+<form class="column" action="/{{id}}" method="POST">
 
   <label for="content">Comment:</label>
   <textarea id="content" name="content" required></textarea>
