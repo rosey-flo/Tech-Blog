@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const { hash, compare } = require('bcrypt');
 const client = require('../config/connection');
-const Post = require('./Post')
+
 
 const User = client.define('User', {
   email: {

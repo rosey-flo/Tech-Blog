@@ -15,7 +15,7 @@ const Post = client.define('Post', {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-          model: 'User',
+          model: 'Users',
           key: 'id'
         }
 }

@@ -50,10 +50,6 @@ module.exports = {
     res.redirect('/');
   },
 
-
-
-
-  ///////UNMADE ROUTES
   async createNewPost(req, res) {
     try {
       const { title, content } = req.body;

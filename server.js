@@ -53,4 +53,4 @@ client.sync({ force: false })
     app.listen(PORT, () => {
       console.log('Server started on port', PORT);
     });
-  });
+  }); 
